@@ -1,0 +1,44 @@
+import { BackgroundImage, Box, SimpleGrid, rgba } from '@mantine/core';
+import { FeedbackCard } from './components/feedbackCard';
+import { Title } from './components/title';
+
+export const Feedback = () => (
+  <BackgroundImage
+    src='/background_feedback.jpg'
+    bga={{ sm: 'fixed' }}
+    id='feedback'
+  >
+    <Box
+      px={{ base: '6vw', lg: '10vw' }}
+      py={{ base: '6vh', lg: '10vh' }}
+      bg={rgba('dark.8', 0.7)}
+    >
+      <Title label='Обратная связь' c='white' />
+      <SimpleGrid cols={{ md: 2, base: 1 }} spacing='xl' mt={{ base: 'md', sm: 'xl' }} >
+        <FeedbackCard
+          name='Денисов Максим'
+          position='Директор департамента разработки OOO&nbsp;"Интабия"'
+          text='Старков Георгий хорошо разбирается в iOS-стеке, использует современные технологии
+            и архитектурные подходы. Демонстрирует высокий уровень ответственности, инициативность
+            и умение работать в команде. Всегда находит эффективные решения для сложных задач,
+            учитывая как технические, так и бизнес-требования. Всегда в поиске лучших решений
+            и не боится предлагать новые идеи. Надежный и ответственный специалист.'
+          photoUrl='/MaksimDenisov.jpeg'
+        />
+        {/* <FeedbackCard
+          name='Поседаева Карина'
+          position='ТУТ ДОЛЖНА БЫТЬ ДОЛЖНОСТЬ'
+          text='А ТУТ ОПИСАНИе'
+        /> */}
+        <FeedbackCard
+          name='Артём Киль'
+          position='Android-разработчик в ООО "Маяк"'
+          text='Переписывали приложение с xamarin на нативные платформы. Во время разработки предлагал идеи, которые
+            по итогу были приняты бизнесом и реализованы в продакшн версии приложения. Охотно делился знаниями
+            по решению тех или иных задач, с которыми сталкивался. Также в обсуждениях про планы на будущее
+            по направлению мобильной разработки принимал активное участие.'
+        />
+      </SimpleGrid>
+    </Box>
+  </BackgroundImage>
+)
