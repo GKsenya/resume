@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
   },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/GregorStarkov',
+  //       permanent: true,
+  //     }
+  //   ]
+  // },
 };
 
 export default nextConfig;
