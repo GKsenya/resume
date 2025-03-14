@@ -1,0 +1,52 @@
+import { FeedbackCard } from '@/components/feedbackCard';
+import { Title } from '@/components/title';
+import { BackgroundImage, Box, SimpleGrid, Text, rgba } from '@mantine/core';
+
+export const Feedback = () => (
+  <BackgroundImage
+    src='/GregorStarkov/background_feedback.jpg'
+    bga={{ sm: 'fixed' }}
+    id='feedback'
+  >
+    <Box
+      px={{ base: '6vw', lg: '10vw' }}
+      py={{ base: '6vh', lg: '10vh' }}
+      bg={rgba('dark.8', 0.7)}
+    >
+      <Title label='Обратная связь' c='white' />
+      <SimpleGrid cols={{ md: 2, base: 1 }} spacing='xl' mt={{ base: 'md', sm: 'xl' }} >
+        {/* <FeedbackCard
+          name='Поседаева Карина'
+          position='HR менеджер OOO&nbsp;"Интабия" (2020-2024)'
+          text=''
+          photoUrl='/GregorStarkov/KarinaPosedaeva.jpeg'
+        /> */}
+        <FeedbackCard
+          name='Степанюк Константин'
+          position={['Старший преподаватель НГУ', 'Технический директор OOO "Интабия" (2016-2022)']}
+          text={
+            <>
+              <Text>
+                Старкова (Горячкина) Ксения Сергеевна проходила обучение на кафедре бизнес-информатики НГУ
+                и в 2020 году, и успешно защитила выпускную квалификационную работу под моим
+                научным руководством. Защита была проведена на высоком уровне, работа получила
+                оценку "отлично".
+              </Text>
+              <Text>
+                После завершения обучения мы сотрудничали с Ксенией в одной IT-компании ,
+                занимающейся аутсорсинговой разработкой. В ходе работы я неоднократно слышал
+                исключительно положительные отзывы о её профессионализме, ответственности и
+                умении эффективно взаимодействовать в команде.
+              </Text>
+              <Text>Рекомендую Ксению как компетентного и надёжного специалиста, обладающего
+                аналитическим складом ума, высокой степенью самоорганизации и стремлением к
+                профессиональному развитию.
+              </Text>
+            </>
+          }
+          photoUrl='/KseniaStarkova/StepanukKonstantin.jpg'
+        />
+      </SimpleGrid>
+    </Box>
+  </BackgroundImage>
+)
