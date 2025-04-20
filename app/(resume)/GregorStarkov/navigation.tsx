@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Affix } from '@/components/affix';
 import { ActionIcon, Box, Burger, Group, Modal, NavLink, Stack, Text } from '@mantine/core';
@@ -10,7 +10,7 @@ import classes from './navigation.module.css';
 type SectionProp = {
   href: string;
   label: string;
-}
+};
 
 const sections: SectionProp[] = [
   {
@@ -41,7 +41,7 @@ const sections: SectionProp[] = [
     href: '#feedback',
     label: 'Обратная связь',
   },
-]
+];
 
 export const Navigation = () => {
   const [opened, { close, toggle }] = useDisclosure();
@@ -49,7 +49,12 @@ export const Navigation = () => {
 
   return (
     <>
-      <Box bg='dark.8' w='100vw' h='6vh' hiddenFrom='sm' />
+      <Box
+        bg='dark.8'
+        w='100vw'
+        h='6vh'
+        hiddenFrom='sm'
+      />
       <Group
         pos='fixed'
         top={0}
@@ -62,7 +67,12 @@ export const Navigation = () => {
         style={{ zIndex: 10000 }}
         hiddenFrom='sm'
       >
-        <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" color='white' />
+        <Burger
+          opened={opened}
+          onClick={toggle}
+          aria-label='Toggle navigation'
+          color='white'
+        />
       </Group>
       <Modal
         opened={opened}
@@ -73,13 +83,18 @@ export const Navigation = () => {
         bg='dark.8'
         padding={0}
         autoFocus={false}
-        pb='6vh'
+        hiddenFrom='sm'
       >
-        <Stack pt='12vh' bg='dark.8' h='100vh' gap='xs'>
+        <Stack
+          pt='12vh'
+          bg='dark.8'
+          h='100vh'
+          gap='xs'
+        >
           {sections.map((section, index) => (
             <NavLink
               color='dark.6'
-              variant="filled"
+              variant='filled'
               autoFocus={false}
               key={section.href}
               href={section.href}
@@ -92,7 +107,12 @@ export const Navigation = () => {
               }}
             />
           ))}
-          <Group px='xl' mt='12vh' mb='xl' justify='flex-end'>
+          <Group
+            px='xl'
+            mt='12vh'
+            mb='xl'
+            justify='flex-end'
+          >
             <ActionIcon
               component='a'
               href='https://t.me/StarkovGeorgiy'

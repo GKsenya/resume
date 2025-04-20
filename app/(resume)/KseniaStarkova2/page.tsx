@@ -1,4 +1,4 @@
-import { ScrollArea } from '@mantine/core';
+import { Box } from '@mantine/core';
 import { Metadata } from 'next';
 import { WorkingConditions } from './conditions';
 import { Education } from './education';
@@ -12,22 +12,16 @@ export const metadata: Metadata = {
   title: 'Старкова Ксения | frontend-разработчик',
 };
 
-export default function KseniaStarkova() {
+export default function KseniaStarkova2() {
   return (
-    <main>
+    <Box bg='gray.0'>
       <Navigation />
-      <ScrollArea
-        h={{ base: '94vh', sm: '100vh' }}
-        scrollbars='y'
-        type='auto'
-      >
-        <Introduce />
-        <WorkingConditions />
-        <Experience />
-        <Education />
-        <Skills />
-        <Feedback />
-      </ScrollArea>
-    </main>
+      <Introduce />
+      <WorkingConditions />
+      <Experience />
+      <Education />
+      <Skills />
+      <Feedback />
+    </Box>
   );
 }

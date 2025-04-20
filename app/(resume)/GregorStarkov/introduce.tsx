@@ -19,7 +19,7 @@ export const Introduce = () => {
   const isMobile = useMediaQuery(`(max-width: ${em(767)})`);
 
   return (
-    <>
+    <Box pos='relative'>
       <BackgroundImage
         src='/GregorStarkov/background_macbook_coding.jpg'
         bgp={{ sm: '0 -50vh' }}
@@ -138,19 +138,8 @@ export const Introduce = () => {
               @StarkovGeorgiy
             </Anchor>
           </Group>
-          {/* <Group wrap='nowrap' align='flex-start'>
-            <Text fw={500} span>GitLab</Text>
-            <Anchor
-              fw={300}
-              c='black'
-              href='https://gitlab.com/mobile-ios-development'
-              target='_blank'
-            >
-              gitlab.com/mobile-ios-development
-            </Anchor>
-          </Group> */}
         </Stack>
       </Flex>
-    </>
+    </Box>
   )
 };
