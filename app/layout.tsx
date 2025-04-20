@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' {...mantineHtmlProps} style={{ scrollbarWidth: 'none' }}>
+    <html lang='en' {...mantineHtmlProps}>
       <body>
         <Script id="metrika-counter" strategy="afterInteractive">
           {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

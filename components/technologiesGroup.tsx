@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, em, Flex, FlexProps, Group, rgba, Text, TextProps } from '@mantine/core';
+import { Badge, em, Flex, FlexProps, Group, Text, TextProps } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 
 type TechnologiesGroupProps = {
@@ -16,11 +16,11 @@ export const TechnologiesGroup = (props: TechnologiesGroupProps) => {
   const mapToBadge = (array: string[]) =>
     array.map((item) => (
       <Badge
-        color='dark'
+        color='gray'
+        c='dark'
         variant='light'
         key={item}
         size={isMobile ? 'xs' : 'md'}
-        styles={({ colors }) => ({ root: { background: rgba(colors.dark[0], 0.25) } })}
       >
         {item}
       </Badge>

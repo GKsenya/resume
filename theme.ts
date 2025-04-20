@@ -14,7 +14,7 @@ export const theme = createTheme({
       h2: { fontSize: rem(32), lineHeight: rem(36) },
       h3: { fontSize: rem(26), lineHeight: rem(30) },
       h4: { fontSize: rem(22), lineHeight: rem(26) },
-      h5: { fontSize: rem(18), lineHeight: rem(22) },
+      h5: { fontSize: rem(18), lineHeight: rem(22), fontWeight: '500', },
     },
   },
   fontSizes: {
@@ -61,6 +61,25 @@ export const theme = createTheme({
       '#06294e',
       '#0a223d',
     ],
+    // gray: [
+    //   "#f8f9fa",
+    //   "#e9ecef",
+    //   "#dee2e6",
+    //   "#ced4da",
+    //   "#adb5bd",
+    //   "#6c757d",
+    //   "#495057",
+    //   "#343a40",
+    //   "#2a2f34",
+    //   "#212529"
+    // ]
+  },
+  spacing: {
+    xs: rem(8),
+    sm: rem(12),
+    md: rem(16),
+    lg: rem(20),
+    xl: rem(24),
   },
   components: {
     List: {

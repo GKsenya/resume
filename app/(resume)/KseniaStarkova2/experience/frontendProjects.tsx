@@ -3,7 +3,7 @@ import { ReadMoreLink } from '@/components/readMoreLink';
 import { List, ListItem, Stack, Text } from '@mantine/core';
 
 export const FrontendProjects = () => (
-  <Stack gap={40}>
+  <Stack gap='xl'>
     <Project
       name='БКС'
       link='https://lk.bcs.ru/'

@@ -27,7 +27,7 @@ export const EducationItem = (props: EducationItemProps) => (
             mr={{ base: 'md', sm: 'unset' }}
             mt={{ base: 0, sm: '-12px' }}
         />
-        <Stack gap={4} >
+        <Stack gap={4}>
             <Title order={5}>{props.institution}</Title>
             <Text fw={600} c='gray.5'>{props.period}</Text>
             {props.name && (

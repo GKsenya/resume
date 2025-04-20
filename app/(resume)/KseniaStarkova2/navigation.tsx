@@ -1,9 +1,10 @@
 'use client'
 
+import { Affix } from '@/components/affix';
 import { ActionIcon, Box, Burger, Group, Modal, NavLink, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconBrandTelegram, IconMail, IconPhone } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import classes from './navigation.module.css';
 
 type SectionProp = {
@@ -42,6 +43,25 @@ export const Navigation = () => {
   const [opened, { close, toggle }] = useDisclosure();
   const [active, setActive] = useState(0);
 
+  const tabs = useMemo(() => (
+    sections.map((section, index) => (
+      <NavLink
+        color='dark.6'
+        variant="filled"
+        autoFocus={false}
+        key={section.href}
+        href={section.href}
+        active={index === active}
+        label={<Text fz='xl'>{section.label}</Text>}
+        classNames={{ root: classes.root }}
+        onClick={() => {
+          setActive(index);
+          close();
+        }}
+      />
+    ))
+  ), [])
+
   return (
     <>
       <Box bg='dark.8' w='100vw' h='6vh' hiddenFrom='sm' />
@@ -68,25 +88,9 @@ export const Navigation = () => {
         bg='dark.8'
         padding={0}
         autoFocus={false}
-        hiddenFrom='sm'
       >
         <Stack pt='12vh' bg='dark.8' h='100vh' gap='xs'>
-          {sections.map((section, index) => (
-            <NavLink
-              color='dark.6'
-              variant="filled"
-              autoFocus={false}
-              key={section.href}
-              href={section.href}
-              active={index === active}
-              label={<Text fz='xl'>{section.label}</Text>}
-              classNames={{ root: classes.root }}
-              onClick={() => {
-                setActive(index);
-                close();
-              }}
-            />
-          ))}
+          {tabs}
           <Group px='xl' mt='12vh' mb='xl' justify='flex-end'>
             <ActionIcon
               component='a'
@@ -116,6 +120,9 @@ export const Navigation = () => {
           </Group>
         </Stack>
       </Modal>
+      <Affix onClick={() => {
+        setActive(0);
+      }} />
     </>
   );
 };

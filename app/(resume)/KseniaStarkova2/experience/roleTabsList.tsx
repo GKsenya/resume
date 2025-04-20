@@ -9,7 +9,7 @@ const roleList = [
 
 export const RoleTabsList = () => {
     return (
-        <Tabs.List my={40} >
+        <Tabs.List my='xl' >
             {roleList.map((item) => (
                 <Tabs.Tab value={item} key={item} fz='md'>
                     {item}

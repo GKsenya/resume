@@ -7,7 +7,7 @@ export const Introduce = () => {
   const isMobile = useMediaQuery(`(max-width: ${em(767)})`);
 
   return (
-    <>
+    <Box pos='relative'>
       <BackgroundImage
         src='/KseniaStarkova/background_macbook_coding.jpg'
         bgp={{ sm: '0 -50vh' }}
@@ -75,7 +75,7 @@ export const Introduce = () => {
             >
               Дата рождения
             </Text>
-            <Text fw={300}>06 мая 1999 (25 лет)</Text>
+            <Text fw={300}>06 мая 1999 (26 лет)</Text>
           </Group>
           <Group>
             <Text
@@ -143,6 +143,6 @@ export const Introduce = () => {
           </Group>
         </Stack>
       </Flex>
-    </>
+    </Box>
   );
 };
