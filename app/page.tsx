@@ -28,7 +28,7 @@ export default function Home() {
           <PersonCard
             name='Старкова Ксения Сергеевна'
             position='Frontend-разработчик | React'
-            status={Status.CONSIDERING_OFFERS}
+            status={Status.LOOKING_FOR_WORK}
             photoUrl='/KseniaStarkova/KseniaStarkovaXSmall.jpeg'
             pageUrl='/KseniaStarkova'
           />

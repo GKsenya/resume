@@ -15,7 +15,6 @@ export const Experience = () => {
     <Box
       px={{ base: '6vw', lg: '10vw' }}
       py={{ base: '6vh', lg: '10vh' }}
-      bg='white'
       id='experience'
     >
       <Title label='Опыт работы' />
@@ -29,7 +28,7 @@ export const Experience = () => {
         {/* Сделать обертку CompanyExperienceWrapper */}
         <CompanyCard
           fromTo='07/2020 - н.в.'
-          period='4 года 10 месяцев'
+          period='4 года 9 месяцев'
           name='ООО "Интабия"'
           position='Frontend-разработчик'
           city='Новосибирск'
@@ -59,6 +58,10 @@ export const Experience = () => {
           <Tabs.Panel value={ProjectRole.FULLSTACK}>
             <FullstackProjects />
           </Tabs.Panel>
+
+          {/* <Tabs.Panel value={ProjectRole.BACKEND}>
+            <BackendProjects />
+          </Tabs.Panel> */}
         </Tabs>
       </Flex>
     </Box>
