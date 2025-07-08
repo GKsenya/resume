@@ -138,6 +138,17 @@ export const Introduce = () => {
               @StarkovGeorgiy
             </Anchor>
           </Group>
+          <Group>
+            <Text fw={500} span>GitLab</Text>
+            <Anchor
+              fw={300}
+              c='black'
+              href='https://gitlab.com/starkov-georgiy'
+              target='_blank'
+            >
+              starkov-georgiy
+            </Anchor>
+          </Group>
         </Stack>
       </Flex>
     </Box>
