@@ -97,7 +97,7 @@ export const Introduce = () => {
         <Stack gap='xs' w={{ base: 'unset', sm: '44vw' }}>
           <Group>
             <Text fw={500} span>Дата рождения</Text>
-            <Text fw={300}>02 мая 1996 (28 лет)</Text>
+            <Text fw={300}>02 мая 1996 (29 лет)</Text>
           </Group>
           <Group>
             <Text fw={500} span>Гражданство</Text>

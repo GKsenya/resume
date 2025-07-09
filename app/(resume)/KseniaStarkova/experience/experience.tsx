@@ -29,7 +29,7 @@ export const Experience = () => {
         {/* Сделать обертку CompanyExperienceWrapper */}
         <CompanyCard
           fromTo='07/2020 - н.в.'
-          period='4 года 10 месяцев'
+          period='5 лет'
           name='ООО "Интабия"'
           position='Frontend-разработчик'
           city='Новосибирск'
