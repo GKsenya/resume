@@ -1,26 +1,26 @@
-'use client'
+'use client';
 
-import { CompanyCard } from '@/components/companyCard';
-import { Title } from '@/components/title';
 import { Box, Divider, Flex, Tabs, em } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { CompanyCard, Title } from 'components';
 import { ProjectRole } from 'types/projectRole';
+import { getPeriod, periodFormatter } from 'utils';
 import { FrontendProjects } from './frontendProjects';
 import { FullstackProjects } from './fullstackProjects';
 import { RoleTabsList } from './roleTabsList';
 
 export const Experience = () => {
   const isMobile = useMediaQuery(`(max-width: ${em(767)})`);
+
   return (
     <Box
       px={{ base: '6vw', lg: '10vw' }}
       py={{ base: '6vh', lg: '10vh' }}
-      bg='white'
       id='experience'
     >
-      <Title label='Опыт работы' />
+      <Title label='Опыт работы' color='orange.5'/>
       <Flex
-        wrap="nowrap"
+        wrap='nowrap'
         align='flex-start'
         gap={0}
         direction={{ base: 'column', sm: 'row' }}
@@ -29,7 +29,7 @@ export const Experience = () => {
         {/* Сделать обертку CompanyExperienceWrapper */}
         <CompanyCard
           fromTo='07/2020 - н.в.'
-          period='5 лет'
+          period={periodFormatter(getPeriod('2020-07-06'))}
           name='ООО "Интабия"'
           position='Frontend-разработчик'
           city='Новосибирск'
@@ -46,10 +46,13 @@ export const Experience = () => {
           orientation='horizontal'
           color='dark.0'
           hiddenFrom='sm'
-          label="Проекты внутри компании"
+          label='Проекты внутри компании'
           w='-webkit-fill-available'
         />
-        <Tabs defaultValue={ProjectRole.FRONTEND} color='orange.5'>
+        <Tabs
+          defaultValue={ProjectRole.FRONTEND}
+          color='orange.5'
+        >
           <RoleTabsList />
 
           <Tabs.Panel value={ProjectRole.FRONTEND}>
@@ -62,5 +65,5 @@ export const Experience = () => {
         </Tabs>
       </Flex>
     </Box>
-  )
+  );
 };

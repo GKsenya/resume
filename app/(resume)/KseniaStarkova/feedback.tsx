@@ -1,6 +1,6 @@
-import { FeedbackCard } from '@/components/feedbackCard';
-import { Title } from '@/components/title';
 import { BackgroundImage, Box, SimpleGrid, Text, rgba } from '@mantine/core';
+import { FeedbackCard, Title } from 'components';
+import { Fragment } from 'react';
 
 export const Feedback = () => (
   <BackgroundImage
@@ -13,13 +13,13 @@ export const Feedback = () => (
       py={{ base: '6vh', lg: '10vh' }}
       bg={rgba('dark.8', 0.7)}
     >
-      <Title label='Обратная связь' c='white' />
+      <Title label='Обратная связь' c='white'  color='orange.5'/>
       <SimpleGrid cols={{ md: 2, base: 1 }} spacing='xl' mt={{ base: 'md', sm: 'xl' }} >
         <FeedbackCard
           name='Поседаева Карина'
           position='HR менеджер OOO&nbsp;"Интабия" (2020-2024)'
-          text={
-            <>
+          content={
+            <Fragment>
               <Text>В течение всего периода работы в Интабии Ксения зарекомендовала себя как ответственный,
                 трудолюбивый и инициативный специалист.
               </Text>
@@ -31,14 +31,14 @@ export const Feedback = () => (
                 направленные на закрытие потребностей компании. Например, она участвовала в разработке
                 сервиса вовлеченности сотрудников, что способствовало автоматизации процесса и сокращению трудозатрат.
               </Text>
-            </>}
+            </Fragment>}
           photoUrl='/GregorStarkov/KarinaPosedaeva.jpeg'
         />
         <FeedbackCard
           name='Степанюк Константин'
           position={['Старший преподаватель НГУ', 'Технический директор OOO "Интабия" (2016-2022)']}
-          text={
-            <>
+          content={
+            <Fragment>
               <Text>
                 Старкова (Горячкина) Ксения Сергеевна проходила обучение на кафедре бизнес-информатики НГУ
                 и в 2020 году, и успешно защитила выпускную квалификационную работу под моим
@@ -55,7 +55,7 @@ export const Feedback = () => (
                 аналитическим складом ума, высокой степенью самоорганизации и стремлением к
                 профессиональному развитию.
               </Text>
-            </>
+            </Fragment>
           }
           photoUrl='/KseniaStarkova/StepanukKonstantin.jpg'
         />

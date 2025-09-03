@@ -1,17 +1,12 @@
-import { Badge, Flex, Group, Stack, Text, Title } from '@mantine/core';
+import { Badge, DefaultMantineColor, Flex, Group, Stack, Text, Title } from '@mantine/core';
 import { IconMapPin } from '@tabler/icons-react';
+import { EducationItem as EducationItemProps } from 'types';
 
-type EducationItemProps = {
-    name?: string;
-    education?: string;
-    faculty?: string;
-    institution: string;
-    period: string;
-    city?: string;
-    isOnline?: boolean
-}
+type Props = {
+    color?: DefaultMantineColor;
+} & EducationItemProps
 
-export const EducationItem = (props: EducationItemProps) => (
+export const EducationItem = ({color, ...props}: Props) => (
     <Flex
         flex={1}
         direction={{ base: 'row', sm: 'column' }}
@@ -27,7 +22,7 @@ export const EducationItem = (props: EducationItemProps) => (
             mr={{ base: 'md', sm: 'unset' }}
             mt={{ base: 0, sm: '-12px' }}
         />
-        <Stack gap={4}>
+        <Stack gap={4} c={color}>
             <Title order={5}>{props.institution}</Title>
             <Text fw={600} c='gray.5'>{props.period}</Text>
             {props.name && (

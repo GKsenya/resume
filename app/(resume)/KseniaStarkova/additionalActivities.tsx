@@ -1,5 +1,5 @@
-import { Title } from '@/components/title';
 import { Box } from '@mantine/core';
+import { Title } from 'components';
 
 export const AdditionalActivities = () => {
   return (
@@ -9,7 +9,10 @@ export const AdditionalActivities = () => {
       bg='white'
       id='experience'
     >
-      <Title label='Дополнительная активность' />
+      <Title
+        label='Дополнительная активность'
+        color='indigo'
+      />
       Поиск абитуриентов из Узбекистана для поступления в 2020 году посредством интернет-маркетинга – Project Manager
       (стратегия “Студент бакалавриата”) Анализ целевой аудитории; анализ рынка и конкурентов; создание посадочной
       страны на Tilda; запуск рекламных кампаний Топ 3% (131/5631) конкурса Catch Me If You Can ("Alice") Конкурс по ML

@@ -58,7 +58,6 @@ export const Introduce = () => {
       </BackgroundImage>
 
       <Flex
-        bg='white'
         h={{ base: 'auto', sm: '50vh' }}
         px={{ lg: '10vw', base: '6vw' }}
         justify={{ base: 'flex-start', sm: 'flex-end' }}
@@ -69,10 +68,7 @@ export const Introduce = () => {
           w={{ base: 'unset', sm: '44vw' }}
         >
           <Group>
-            <Text
-              fw={500}
-              span
-            >
+            <Text fw={500} span>
               Дата рождения
             </Text>
             <Text fw={300}>06 мая 1999 (26 лет)</Text>
@@ -106,6 +102,7 @@ export const Introduce = () => {
               fw={300}
               c='black'
               href='mailto:starkova_k.s@mail.ru'
+              underline='always'
             >
               starkova_k.s@mail.ru
             </Anchor>
@@ -121,6 +118,7 @@ export const Introduce = () => {
               fw={300}
               c='black'
               href='tel:89133808958'
+              underline='always'
             >
               +7-913-380-89-58
             </Anchor>
@@ -136,6 +134,7 @@ export const Introduce = () => {
               fw={300}
               c='black'
               href='https://t.me/StarkovaKsenya'
+              underline='always'
               target='_blank'
             >
               @StarkovaKsenya

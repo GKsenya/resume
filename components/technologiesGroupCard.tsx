@@ -14,7 +14,7 @@ export const TechnologiesGroupCard = (props: TechnologiesGroupProps) => {
       <Badge
         key={item}
         size='xs'
-        variant='light'
+        variant='dot'
         color='gray'
         c='dark'
       >
@@ -24,9 +24,9 @@ export const TechnologiesGroupCard = (props: TechnologiesGroupProps) => {
 
   return (
     <Card radius='lg' h='100%'>
-      <Title order={4} mb='md'>{props.name}</Title>
+      <Title order={5} mb='md' fw={600}>{props.name}</Title>
       <Flex
-        direction='row'
+        direction='column'
         wrap='wrap'
         gap='xs'
       >

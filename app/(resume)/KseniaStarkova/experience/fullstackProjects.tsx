@@ -1,5 +1,5 @@
-import { Project } from '@/components/project';
 import { List, ListItem, Stack, Text } from '@mantine/core';
+import { Project } from 'components';
 
 export const FullstackProjects = () => (
   <Stack gap='xl'>

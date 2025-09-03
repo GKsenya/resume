@@ -1,0 +1,20 @@
+.indicator {
+    width: 20px;
+    transition: width 250ms ease;
+    background-color: var(--mantine-color-gray-3);
+
+    &[data-active] {
+      width: 56px;
+      background-color: var(--mantine-color-deepBlue2-4);
+    }
+  }
+
+.control {
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: unset;
+}
+
+.controls {
+  padding: 0;
+}

@@ -1,6 +1,5 @@
-import { Project } from '@/components/project';
-import { ReadMoreLink } from '@/components/readMoreLink';
 import { List, ListItem, Stack, Text } from '@mantine/core';
+import { Project, ReadMoreLink } from 'components';
 
 export const FrontendProjects = () => (
   <Stack gap={40}>

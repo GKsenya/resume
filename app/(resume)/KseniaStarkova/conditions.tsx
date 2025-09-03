@@ -1,5 +1,5 @@
-import { Title } from '@/components/title';
 import { BackgroundImage, Box, Group, rgba, Stack, Text } from '@mantine/core';
+import { Title } from 'components';
 
 export const WorkingConditions = () => (
   <BackgroundImage
@@ -13,7 +13,7 @@ export const WorkingConditions = () => (
       bg={rgba('dark.8', 0.8)}
       c='white'
     >
-      <Title label='Условия работы' />
+      <Title label='Условия работы' color='orange.5' />
       <Stack gap='xs' mt={{ base: 'md', sm: 'xl' }} >
         <Group>
           <Text fw={500} span>Занятость:</Text>

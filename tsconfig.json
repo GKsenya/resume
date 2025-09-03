@@ -7,11 +7,6 @@
       "esnext"
     ],
     "baseUrl": ".",
-    "paths": {
-      "@/components/*": [
-        "components/*"
-      ]
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -34,9 +29,12 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "components/yandexMetrica.jsx"  ],
+    ".next/types/**/*.ts",
+    "components/yandexMetrica.jsx"
+  ],
   "exclude": [
     "node_modules"
   ],
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true,
 }

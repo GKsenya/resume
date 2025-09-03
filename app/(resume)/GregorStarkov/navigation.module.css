@@ -1,12 +1,21 @@
 .root {
-  padding-left:  var(--mantine-spacing-xl);
-  &:active {
-    background-color: var(--mantine-color-dark-6);
-  }
+  padding-left: 6vw;
   &:hover {
-    background-color: var(--mantine-color-dark-6);
+    background-color: var(--mantine-color-deepBlue2-4);
+    cursor: pointer;
   }
   &:focus-visible {
-    background-color: var(--mantine-color-dark-6);
+    background-color: var(--mantine-color-deepBlue2-6);
+  }
+  @media (min-width: 992px) {
+    height: 100%;
+    padding-inline: var(--mantine-spacing-sm);
+    &[data-active] {
+      background-color: var(--mantine-color-deepBlue2-6);
+      border-top: 4px solid var(--mantine-color-deepBlue2-4);
+    }
+    &:hover {
+      background-color: var(--mantine-color-deepBlue2-6);
+    }
   }
 }

@@ -1,10 +1,10 @@
 'use client';
 
-import { Affix } from '@/components/affix';
-import { ActionIcon, Box, Burger, Group, Modal, NavLink, Stack, Text } from '@mantine/core';
+import { ActionIcon, Box, Burger, Flex, Group, Modal, NavLink, Stack, Text, Tooltip } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconBrandTelegram, IconMail, IconPhone } from '@tabler/icons-react';
-import { useState } from 'react';
+import { IconBrandApple, IconBrandTelegram, IconDownload, IconMail, IconPhone } from '@tabler/icons-react';
+import useActiveSection from 'hooks/useActiveSection';
+import { Fragment, useEffect, useState } from 'react';
 import classes from './navigation.module.css';
 
 type SectionProp = {
@@ -18,8 +18,8 @@ const sections: SectionProp[] = [
     label: 'Главная',
   },
   {
-    href: '#conditions',
-    label: 'Условия работы',
+    href: '#skills',
+    label: 'Навыки',
   },
   {
     href: '#experience',
@@ -27,7 +27,7 @@ const sections: SectionProp[] = [
   },
   {
     href: '#experience-before-IT',
-    label: 'Опыт работы до IT',
+    label: 'Опыт до IT',
   },
   {
     href: '#education',
@@ -39,84 +39,162 @@ const sections: SectionProp[] = [
   },
   {
     href: '#feedback',
-    label: 'Обратная связь',
+    label: 'Рекомендации',
   },
 ];
 
+const sectionIds = sections.map((section) => section.href.replace('#', ''));
+
 export const Navigation = () => {
   const [opened, { close, toggle }] = useDisclosure();
-  const [active, setActive] = useState(0);
+  const activeId = useActiveSection(sectionIds);
+  const [active, setActive] = useState(sectionIds[0]);
+
+  useEffect(() => {
+    setActive(activeId)
+  }, [activeId]);
 
   return (
-    <>
-      <Box
-        bg='dark.8'
-        w='100vw'
-        h='6vh'
-        hiddenFrom='sm'
-      />
-      <Group
+    <Fragment>
+      <Flex
+        direction='row'
+        justify='space-between'
+        align='center'
         pos='fixed'
         top={0}
-        bg='dark.8'
-        w='100vw'
-        h='6vh'
+        bg='deepBlue2.6'
+        w='100%'
+        h='80px'
         c='white'
-        justify='flex-end'
-        px='6vw'
+        pl={{ base: '6vw', md: '2vw' }}
+        pr={{ base: '6vw', md: 60, lg: 88, xl: 128 }}
         style={{ zIndex: 10000 }}
-        hiddenFrom='sm'
+        gap={0}
       >
+        <Group wrap='nowrap' gap={8} align='center'>
+          <Box
+            w={{ base: 24, xl: 32 }}
+            h={{ base: 24, xl: 32 }}
+          >
+            <IconBrandApple
+              size='100%'
+              color='white'
+            />
+          </Box>
+          <Text
+            fz={{ base: 'sm', lg: 'md', xl: 'xl' }}
+            c='white'
+            fw={700}
+            style={{ whiteSpace: 'nowrap' }}
+          >
+            iOS Developer
+          </Text>
+        </Group>
+
+        <Group
+          gap={0}
+          style={{ flexWrap: 'nowrap' }}
+          visibleFrom='md'
+          h='100%'
+        >
+          {sections.map((section) => {
+            const sectionId = section.href.replace('#', '');
+            return (
+              <NavLink
+                color='deepBlue2.6'
+                variant='filled'
+                autoFocus={false}
+                key={section.href}
+                href={section.href}
+                active={sectionId === active}
+                label={(
+                  <Text
+                    fz={{ md: 'xs', lg: 'md' }}
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    {section.label}
+                  </Text>
+                )}
+                classNames={{ root: classes.root }}
+                onClick={() => setActive(sectionId)}
+              />
+            )
+          })}
+        </Group>
+        <Tooltip label="Скачать резюме">
+          <ActionIcon
+            color='deepBlue2.4'
+            type='button'
+            component='a'
+            href='/GregorStarkov/Резюме_Старков_Г.А.pdf'
+            download
+            target='_blank'
+            pos='fixed'
+            right={{ md: 20, lg: '2vw' }}
+            top={26}
+            radius='md'
+            size='lg'
+            visibleFrom='md'
+          >
+            <IconDownload size={24} />
+          </ActionIcon>
+        </Tooltip>
+
         <Burger
           opened={opened}
           onClick={toggle}
           aria-label='Toggle navigation'
           color='white'
+          hiddenFrom='md'
         />
-      </Group>
+      </Flex>
+
       <Modal
         opened={opened}
         onClose={() => close()}
         fullScreen
         withCloseButton={false}
         c='white'
-        bg='dark.8'
+        bg='deepBlue2.6'
         padding={0}
         autoFocus={false}
-        hiddenFrom='sm'
+        hiddenFrom='md'
       >
-        <Stack
-          pt='12vh'
-          bg='dark.8'
-          h='100vh'
-          gap='xs'
-        >
-          {sections.map((section, index) => (
-            <NavLink
-              color='dark.6'
-              variant='filled'
-              autoFocus={false}
-              key={section.href}
-              href={section.href}
-              active={index === active}
-              label={<Text fz='xl'>{section.label}</Text>}
-              classNames={{ root: classes.root }}
-              onClick={() => {
-                setActive(index);
-                close();
-              }}
-            />
-          ))}
+        <Stack bg='deepBlue2.6' h='100vh' style={{ overflow: 'hidden' }}>
+          <Stack
+            pt='80px'
+            gap='xs'
+          >
+            {sections.map((section) => {
+              const sectionId = section.href.replace('#', '');
+              return (
+                <NavLink
+                  color='deepBlue2.5'
+                  variant='filled'
+                  autoFocus={false}
+                  key={section.href}
+                  href={section.href}
+                  active={sectionId === active}
+                  label={<Text fz='xl'>{section.label}</Text>}
+                  classNames={{ root: classes.root }}
+                  onClick={() => {
+                    setActive(sectionId);
+                    close();
+                  }}
+                />
+              )
+            })}
+          </Stack>
           <Group
+            mt={100}
             px='xl'
-            mt='12vh'
             mb='xl'
             justify='flex-end'
           >
             <ActionIcon
               component='a'
               href='https://t.me/StarkovGeorgiy'
-              color='orange.5'
+              color='deepBlue2.4'
               size={40}
             >
               <IconBrandTelegram />
@@ -124,7 +202,7 @@ export const Navigation = () => {
             <ActionIcon
               component='a'
               href='tel:89148739332'
-              color='orange.5'
+              color='deepBlue2.4'
               size={40}
             >
               <IconPhone />
@@ -133,7 +211,7 @@ export const Navigation = () => {
               component='a'
               target='_blank'
               href='mailto:stgregor1@icloud.com'
-              color='orange.5'
+              color='deepBlue2.4'
               size={40}
             >
               <IconMail />
@@ -141,9 +219,6 @@ export const Navigation = () => {
           </Group>
         </Stack>
       </Modal>
-      <Affix onClick={() => {
-        setActive(0);
-      }} />
-    </>
+    </Fragment >
   );
 };

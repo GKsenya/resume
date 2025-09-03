@@ -1,32 +1,34 @@
-'use client'
+'use client';
 
-import { CompanyCard } from '@/components/companyCard';
-import { Project } from '@/components/project';
-import { Title } from '@/components/title';
-import { ActionIcon, Box, Divider, Flex, Group, List, ListItem, Stack, Text, em } from '@mantine/core';
+import { ActionIcon, Divider, Flex, Group, List, ListItem, Stack, Text, em } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { IconExternalLink } from '@tabler/icons-react';
+import { CompanyCard, Project, ResumeSection } from 'components';
+import { getPeriod, periodFormatter } from 'utils';
 
 export const Experience = () => {
   const isMobile = useMediaQuery(`(max-width: ${em(767)})`);
+
   return (
-    <Box
-      px={{ base: '6vw', lg: '10vw' }}
-      py={{ base: '6vh', lg: '10vh' }}
-      bg='white'
+    <ResumeSection
       id='experience'
+      title='Опыт работы'
+      color='deepBlue2.3'
+      variant='colored'
     >
-      <Title label='Опыт работы' />
-      <Stack gap={isMobile ? 40 : 80} mt={{ base: 'md', sm: 'xl' }}>
+      <Stack
+        gap={isMobile ? 40 : 80}
+        mt={{ base: 'md', sm: 'xl' }}
+      >
         <Flex
-          wrap="nowrap"
+          wrap='nowrap'
           align='flex-start'
           gap={0}
           direction={{ base: 'column', sm: 'row' }}
         >
           <CompanyCard
             fromTo='02/2021 - 03/2025'
-            period='4 года 1 месяц'
+            period={periodFormatter(getPeriod('2021-02-24', '2025-03-31'))}
             name='ООО "Интабия"'
             position='iOS разработчик'
             city='Новосибирск'
@@ -43,28 +45,31 @@ export const Experience = () => {
             orientation='horizontal'
             color='dark.0'
             hiddenFrom='sm'
-            label="Проекты внутри компании"
+            label='Проекты внутри компании'
             w='-webkit-fill-available'
           />
           <Stack
             gap='xl'
-            style={isMobile ? { paddingTop: '2vh' } : {}}
+            style={isMobile ? { paddingTop: '20px' } : {}}
           >
             <Project
               name='SimonsVoss'
-              link=' https://www.simons-voss.com/en'
+              link='https://www.simons-voss.com/en'
               subtitle='Немецкий производитель беспроводных замковых систем'
               goal='Заменить использование физических ключей на управление замками со смартфона.'
               architecture='MVVM'
               technologies={{
                 languages: ['Swift', 'Objective-C', 'Kotlin Multiplatform', 'C', 'C++'],
                 uiLibraries: ['Storyboard', 'XIB'],
-                frameworks: ['CryptoSwift', 'CommonCtypto', 'Realm', 'Alamofire', 'Swinject']
+                frameworks: ['CryptoSwift', 'CommonCtypto', 'Realm', 'Alamofire', 'Swinject'],
               }}
-              additionalInfo={(
+              additionalInfo={
                 <Group gap={4}>
                   <Text fw={600}>Читать о проекте в кейсах</Text>
-                  <Group wrap='nowrap' gap={4}>
+                  <Group
+                    wrap='nowrap'
+                    gap={4}
+                  >
                     <Text fw={600}>компании</Text>
                     <ActionIcon
                       variant='transparent'
@@ -78,15 +83,14 @@ export const Experience = () => {
                     </ActionIcon>
                   </Group>
                 </Group>
-              )}
-              description={(
+              }
+              description={
                 <Stack gap='xs'>
-
                   <Text fw={300}>
                     Разрабатывал мобильное приложение в команде из 5 человек: 2 iOS-разработчика, Android-разработчик,
                     аналитик, тимлид.
                   </Text>
-                  <Text >Основные задачи:</Text>
+                  <Text>Основные задачи:</Text>
                   <List>
                     <ListItem>Отвечал за верстку пользовательского интерфейса (Storyboard, XIB)</ListItem>
                     <ListItem>Настраивал взаимодействие между C/C++, Objective-C и Swift</ListItem>
@@ -99,29 +103,30 @@ export const Experience = () => {
                       разработанные командой из Германии на C/C++
                     </ListItem>
                     <ListItem>
-                      Реализовал Bridge на Objective-C для интеграции этих библиотек и обеспечения их
-                      взаимодействия с кодом на Swift
+                      Реализовал Bridge на Objective-C для интеграции этих библиотек и обеспечения их взаимодействия с
+                      кодом на Swift
                     </ListItem>
                   </List>
 
-                  <Text >Безопасность и авторизация:</Text>
+                  <Text>Безопасность и авторизация:</Text>
                   <List>
                     <ListItem>Настроил авторизацию пользователей через OAuth2</ListItem>
                     <ListItem>
-                      Обеспечил безопасность приложения, используя библиотеку CryptoSwift, затем выполнил
-                      миграцию на нативную CommonCrypto
+                      Обеспечил безопасность приложения, используя библиотеку CryptoSwift, затем выполнил миграцию на
+                      нативную CommonCrypto
                     </ListItem>
                   </List>
 
-                  <Text >Работа с KMM и SDK:</Text>
+                  <Text>Работа с KMM и SDK:</Text>
                   <List>
                     <ListItem>
-                      Исправлял ошибки, связанные с работой Ktor KMM plugin (бета-версия) при выполнении сетевых запросов
+                      Исправлял ошибки, связанные с работой Ktor KMM plugin (бета-версия) при выполнении сетевых
+                      запросов
                     </ListItem>
                     <ListItem>
-                      Настроил взаимодействие интерфейсов Shared-модуля KMM с iOS-компонентами UI в рамках разработки SDK.
-                      SDK позволял компаниям, имеющим собственные приложения для администрирования бизнеса (офисы, гостиницы,
-                      медицинские учреждения и т. д.), управлять умными системами открытия дверей
+                      Настроил взаимодействие интерфейсов Shared-модуля KMM с iOS-компонентами UI в рамках разработки
+                      SDK. SDK позволял компаниям, имеющим собственные приложения для администрирования бизнеса (офисы,
+                      гостиницы, медицинские учреждения и т. д.), управлять умными системами открытия дверей
                     </ListItem>
                     <ListItem>
                       Например, гостиница могла интегрировать SDK в свое приложение, чтобы предоставить персоналу
@@ -137,38 +142,36 @@ export const Experience = () => {
                     </ListItem>
                   </List>
                 </Stack>
-              )}
+              }
             />
 
             <Project
-              name="Госуслуги"
+              name='Госуслуги'
               subtitle='Сервис предоставления государственных услуг РФ'
               link='https://apps.apple.com/ru/app/%D0%B3%D0%BE%D1%81%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8-%D1%8F%D0%BA%D1%83%D1%82%D0%B8%D0%B8/id1536067698?l=en-GB'
               goal='Разработать приложение с нуля для предоставления государственных услуг гражданам РФ
                 для конкретного региона.'
-              architecture='MVVM'
+              architecture='VIPER'
               technologies={{
                 languages: ['Swift', 'Kotlin Multiplatform'],
                 uiLibraries: ['Storyboard', 'XIB'],
-                frameworks: ['SVProgressHUD', 'SwiftyMenu', 'Firebase Messaging', 'R.swift']
+                frameworks: ['SVProgressHUD', 'SwiftyMenu', 'Firebase Messaging', 'R.swift'],
               }}
-              description={(
+              description={
                 <Stack gap='xs'>
                   <Text fw={300}>
                     Принимал участие в разработке приложения в составе команды заказчика из 7 человек: iOS-разработчик,
                     Android-разработчик, аналитик, Product manager, тестировщик, 2 backend-разработчика.
                   </Text>
-                  <Text >Основные задачи:</Text>
+                  <Text>Основные задачи:</Text>
                   <List>
                     <ListItem>Верстка UI</ListItem>
-                    <ListItem>Выпуск обновлений в App Store.</ListItem>
+                    <ListItem>Выпуск обновлений в App Store</ListItem>
                     <ListItem>Настройка интеграции shared-модуля на Kotlin Multiplatform</ListItem>
                   </List>
-                  <Text fw={300}>
-                    Состоялся релиз для приложения республики Саха (Якутия).
-                  </Text>
+                  <Text fw={300}>Состоялся релиз для приложения республики Саха (Якутия).</Text>
                 </Stack>
-              )}
+              }
             />
 
             <Project
@@ -188,17 +191,17 @@ export const Experience = () => {
                   'Firebase Messaging',
                   'FBSDKCoreKit',
                   'YandexMobileMetrica',
-                ]
+                ],
               }}
-              description={(
+              description={
                 <Stack gap='xs'>
                   <Text fw={300}>
-                    Работая в составе команды заказчика, вносил изменения в функционал
-                    эквайринга банка ГПБ для регионов Челябинска и Кемерово.
+                    Работая в составе команды заказчика, вносил изменения в функционал эквайринга банка ГПБ для регионов
+                    Челябинска и Кемерово.
                   </Text>
                   <Text fw={300}>
-                    Разработал и реализовал функционал отображения рейтинга платежеспособности клиента
-                    в соответствии с дизайн-макетами из Figma. Выпустил обновление в App Store.
+                    Разработал и реализовал функционал отображения рейтинга платежеспособности клиента в соответствии с
+                    дизайн-макетами из Figma. Выпустил обновление в App Store.
                   </Text>
                   <Text fw={300}>Прошел полный цикл разработки, включая:</Text>
                   <List>
@@ -211,7 +214,7 @@ export const Experience = () => {
                     <ListItem>подготовку документации с описанием всех внесенных изменений</ListItem>
                   </List>
                 </Stack>
-              )}
+              }
             />
 
             <Project
@@ -224,12 +227,14 @@ export const Experience = () => {
               technologies={{
                 languages: ['Swift'],
                 uiLibraries: ['Storyboard', 'XIB'],
-                frameworks: ['URLSession']
+                frameworks: ['URLSession'],
               }}
-              description={(
+              description={
                 <Stack gap='xs'>
                   <Text fw={300}>
-                    Было успешно проведено свыше 600 тестов в соответствии со стандартами FIME EMVCo Visa & Mastercard, включая:</Text>
+                    Было успешно проведено свыше 600 тестов в соответствии со стандартами FIME EMVCo Visa & Mastercard,
+                    включая:
+                  </Text>
                   <List>
                     <ListItem>проверку потока сообщений (message flow)</ListItem>
                     <ListItem>тестирование графического интерфейса (GUI: native, HTML)</ListItem>
@@ -239,27 +244,26 @@ export const Experience = () => {
                     <ListItem>обработку ошибок сообщений (message error)</ListItem>
                     <ListItem>тестирование обработки сообщений (message processing)</ListItem>
                   </List>
+                  <Text fw={300}>Внесены необходимые изменения для соответствия требованиям.</Text>
                   <Text fw={300}>
-                    Внесены необходимые изменения для соответствия требованиям.</Text>
-                  <Text fw={300}>
-                    По итогам тестирования компания получила сертификат соответствия стандартам безопасности,
-                    что позволило распространять SDK на рынки Европы и США.
+                    По итогам тестирования компания получила сертификат соответствия стандартам безопасности, что
+                    позволило распространять SDK на рынки Европы и США.
                   </Text>
                 </Stack>
-              )}
+              }
             />
           </Stack>
         </Flex>
 
         <Flex
-          wrap="nowrap"
+          wrap='nowrap'
           align='flex-start'
           gap={0}
           direction={{ base: 'column', sm: 'row' }}
         >
           <CompanyCard
             fromTo='04/2020 - 10/2020'
-            period='7 месяцев'
+            period={periodFormatter(getPeriod('2020-04-01', '2020-10-01'))}
             name='ООО "Маяк"'
             position='Инженер отдела сопровождения и разработки программного обеспечения'
             city='Иркутск'
@@ -276,16 +280,15 @@ export const Experience = () => {
             orientation='horizontal'
             color='dark.0'
             hiddenFrom='sm'
-            label="Проект внутри компании"
+            label='Проект внутри компании'
             w='-webkit-fill-available'
           />
-          <Stack
-            style={isMobile ? { paddingTop: '2vh' } : {}}
-          >
+          <Stack style={isMobile ? { paddingTop: '20px' } : {}}>
             <Project
               name='Моя Слата'
               subtitle='Сеть супермаркетов'
               goal='Перевести действующее приложение, написанное на Xamarin, на Swift, выпустить приложение в AppStore.'
+              architecture='MVC'
               technologies={{
                 languages: ['Swift'],
                 uiLibraries: ['Storyboard', 'XIB'],
@@ -296,9 +299,9 @@ export const Experience = () => {
                   'FacebookSDK (аналитика)',
                   'Firebase Messaging',
                   'URLSession',
-                ]
+                ],
               }}
-              description={(
+              description={
                 <Stack gap='xs'>
                   <Text fw={300}>Разработал нативное клиентское приложение "Моя Слата".</Text>
                   <Text fw={300}>Пользователь имел следующие возможности:</Text>
@@ -306,17 +309,17 @@ export const Experience = () => {
                     <ListItem>Получить информацию о купонах на скидку в магазине</ListItem>
                     <ListItem>Посмотреть каталог акционных товаров</ListItem>
                     <ListItem>
-                      Воспользоваться программой лояльности "Фреш-Карта",
-                      которая позволяла предоставить кассиру штрих код и списать бонусные баллы.
+                      Воспользоваться программой лояльности "Фреш-Карта", которая позволяла предоставить кассиру штрих
+                      код и списать бонусные баллы.
                     </ListItem>
                     <ListItem>Отсканировать штрих-код товара в магазине для уточнения стоимости.</ListItem>
                   </List>
                   <Text fw={300}>
-                    После разработки приложения был выпущен релиз с последующими выпусками обновлений,
-                    в которых вносились изменения, повышающие работоспособность приложения.
+                    После разработки приложения был выпущен релиз с последующими выпусками обновлений, в которых
+                    вносились изменения, повышающие работоспособность приложения.
                   </Text>
                 </Stack>
-              )}
+              }
               imgUrls={[
                 '/GregorStarkov/my-slata-1.jpg',
                 '/GregorStarkov/my-slata-2.jpg',
@@ -329,6 +332,6 @@ export const Experience = () => {
           </Stack>
         </Flex>
       </Stack>
-    </Box>
-  )
+    </ResumeSection>
+  );
 };

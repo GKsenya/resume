@@ -3,7 +3,7 @@
 import { ActionIcon, Box, Burger, Group, Modal, NavLink, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconBrandTelegram, IconMail, IconPhone } from '@tabler/icons-react';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import classes from './navigation.module.css';
 
 type SectionProp = {
@@ -43,7 +43,7 @@ export const Navigation = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <>
+    <Fragment>
       <Box bg='dark.8' w='100vw' h='6vh' hiddenFrom='sm' />
       <Group
         pos='fixed'
@@ -116,6 +116,6 @@ export const Navigation = () => {
           </Group>
         </Stack>
       </Modal>
-    </>
+    </Fragment>
   );
 };

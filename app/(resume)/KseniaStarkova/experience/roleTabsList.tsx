@@ -4,7 +4,6 @@ import { ProjectRole } from 'types/projectRole'
 const roleList = [
     ProjectRole.FRONTEND,
     ProjectRole.FULLSTACK,
-    // ProjectRole.BACKEND,
 ]
 
 export const RoleTabsList = () => {

@@ -3,18 +3,26 @@
 import { createTheme, rem } from '@mantine/core';
 
 export const theme = createTheme({
+  breakpoints: {
+    xs: '36em',
+    sm: '48em',
+    md: '62em',
+    lg: '75em',
+    xl: '88em',
+    xxl: '128em',
+  },
   headings: {
     fontWeight: '400',
     sizes: {
       h1: {
-        fontSize: rem(48),
-        lineHeight: rem(56),
-        fontWeight: '500',
+        fontSize: rem(42),
+        lineHeight: rem(48),
+        fontWeight: '600',
       },
       h2: { fontSize: rem(32), lineHeight: rem(36) },
       h3: { fontSize: rem(26), lineHeight: rem(30) },
       h4: { fontSize: rem(22), lineHeight: rem(26) },
-      h5: { fontSize: rem(18), lineHeight: rem(22), fontWeight: '500', },
+      h5: { fontSize: rem(18), lineHeight: rem(22), fontWeight: '500' },
     },
   },
   fontSizes: {
@@ -60,6 +68,18 @@ export const theme = createTheme({
       '#003366',
       '#06294e',
       '#0a223d',
+    ],
+    deepBlue2: [
+      '#c4d7ec',
+      '#b1cae6',
+      '#8cb2db',
+      '#578fca',
+      '#4273a7',
+      '#2c5684',
+      '#163a61',
+      '#001d3d',
+      '#001429',
+      '#000e1c',
     ],
     // gray: [
     //   "#f8f9fa",

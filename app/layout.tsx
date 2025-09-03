@@ -1,10 +1,10 @@
-import YandexMetrika from '@/components/yandexMetrica';
 import '@mantine/carousel/styles.css';
 import { MantineProvider, mantineHtmlProps } from '@mantine/core';
 import "@mantine/core/styles.css";
+import YandexMetrika from 'components/yandexMetrica';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Suspense } from 'react';
+import { Fragment, Suspense } from 'react';
 import { theme } from '../theme';
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function RootLayout({
             });`
           }
         </Script>
-        <Suspense fallback={<></>}>
+        <Suspense fallback={<Fragment></Fragment>}>
           <YandexMetrika />
         </Suspense>
         <MantineProvider theme={theme}>

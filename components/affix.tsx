@@ -26,7 +26,7 @@ export const Affix = ({ onClick }: AffixProps) => {
               onClick();
               scrollTo({ y: 0 });
             }}
-            color='orange.5'
+            color='deepBlue2.5'
             style={transitionStyles}
             size={40}
           >

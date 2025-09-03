@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
-import { Certificates } from './certicates';
-import { WorkingConditions } from './conditions';
+import { Certificates } from './certificates';
 import { Education } from './education';
 import { Experience } from './experience';
 import { ExperienceBeforeIT } from './experienceBeforeIT';
 import { Feedback } from './feedback';
 import { Introduce } from './introduce';
 import { Navigation } from './navigation';
+import { Skills } from './skills';
 
 export const metadata: Metadata = {
   title: 'Старков Георгий | ios-разработчик',
@@ -17,7 +17,7 @@ export default function GregorStarkov() {
     <main>
       <Navigation />
       <Introduce />
-      <WorkingConditions />
+      <Skills />
       <Experience />
       <ExperienceBeforeIT />
       <Education />

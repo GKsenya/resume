@@ -1,24 +1,22 @@
-'use client'
+'use client';
 
-import { CompanyCard } from '@/components/companyCard';
-import { Title } from '@/components/title';
-import { Box, Divider, Flex, List, ListItem, Stack, Text, em } from '@mantine/core';
+import { Divider, Flex, List, ListItem, Stack, Text, em } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { CompanyCard, ResumeSection } from 'components';
 
 export const ExperienceBeforeIT = () => {
   const isMobile = useMediaQuery(`(max-width: ${em(767)})`);
   return (
-    <Box
-      bg='white'
-      px={{ base: '6vw', lg: '10vw' }}
-      pb={{ base: '6vh', lg: '10vh' }}
-      // pt={{ base: '6vh', sm: '0' }}
+    <ResumeSection
       id='experience-before-IT'
+      title='Опыт работы до IT'
+      color='deepBlue2.3'
+      variant='colored'
+      pt={0}
     >
-      <Title label='Опыт работы до IT' />
       <Flex
         mt={{ base: 'md', sm: 'xl' }}
-        wrap="nowrap"
+        wrap='nowrap'
         align='flex-start'
         gap={0}
         direction={{ base: 'column', sm: 'row' }}
@@ -39,20 +37,29 @@ export const ExperienceBeforeIT = () => {
         />
         <Stack
           fw={300}
-          style={isMobile ? { paddingTop: '2vh' } : {}}
+          style={isMobile ? { paddingTop: '2px' } : {}}
         >
           <Divider
             orientation='horizontal'
             color='dark.0'
             hiddenFrom='sm'
-            label="Обязанности"
+            label='Обязанности'
             w='-webkit-fill-available'
           />
-          <Text fw={600} visibleFrom='sm'>Обязанности:</Text>
+          <Text
+            fw={600}
+            visibleFrom='sm'
+          >
+            Обязанности:
+          </Text>
           <List>
-            <ListItem>Поиск клиентов и проведение переговоров для подключения к услугам домашнего интернета и телевидения.</ListItem>
-            <ListItem>Проведение тренингов: “Холодные продажи”, “Клиентоориентированность”, “Методология DISC”, “SPIN-продажи”,
-              "Работа с возражениями".</ListItem>
+            <ListItem>
+              Поиск клиентов и проведение переговоров для подключения к услугам домашнего интернета и телевидения.
+            </ListItem>
+            <ListItem>
+              Проведение тренингов: “Холодные продажи”, “Клиентоориентированность”, “Методология DISC”, “SPIN-продажи”,
+              "Работа с возражениями".
+            </ListItem>
             <ListItem>Управление агентской сетью (4 человека) для выполнения ежемесячного плана продаж.</ListItem>
             <ListItem>Участие в управленческих поединках.</ListItem>
           </List>
@@ -60,14 +67,13 @@ export const ExperienceBeforeIT = () => {
             orientation='horizontal'
             color='dark.0'
             hiddenFrom='sm'
-            label="Достижения"
+            label='Достижения'
             w='-webkit-fill-available'
           />
           Победитель чемпионата по продажам в макрорегионе Дальний Восток в 2015 году (Иркутск, Улан-Удэ, Чита,
           Благовещенск, Хабаровск, Владивосток).
-
         </Stack>
       </Flex>
-    </Box>
-  )
+    </ResumeSection>
+  );
 };

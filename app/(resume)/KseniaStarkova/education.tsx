@@ -1,9 +1,8 @@
 'use client'
 
-import { EducationItem } from '@/components/educationItem';
-import { Title } from '@/components/title';
 import { BackgroundImage, Box, Divider, Flex, em, rgba } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { EducationItem, Title } from 'components';
 
 
 export const Education = () => {
@@ -21,7 +20,7 @@ export const Education = () => {
         bg={rgba('dark.8', 0.8)}
         c='white'
       >
-        <Title label='Образование' />
+        <Title label='Образование' color='orange.5'/>
         <Divider size='lg' mt={{ base: 'md', sm: 'xl' }} color='gray.5' visibleFrom='sm' />
         <Flex
           wrap='nowrap'
