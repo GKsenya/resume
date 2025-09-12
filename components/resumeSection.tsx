@@ -19,8 +19,8 @@ export const ResumeSection = ({ title, children, variant, color, backgroundSrc, 
   >
     <Box
       px={{ base: '6vw', lg: '10vw' }}
-      py={{ base: '40px', xs: '52px', sm: '64px', md: '80px',  lg: '120px' }}
-      bg={backgroundSrc && 'rgba(6, 17, 28, 0.9)'}
+      py={{ base: '40px', xs: '52px', sm: '64px', md: '80px', lg: '120px' }}
+      bg={backgroundSrc && 'rgba(6, 17, 28, 0.8)'}
       id={id}
       {...props}
     >

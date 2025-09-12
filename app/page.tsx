@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
 import { BackgroundImage, Center, rgba, Stack } from '@mantine/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PersonCard } from 'components';
 import dayjs from 'dayjs';
 import { Status } from 'types/status';
-require('dayjs/locale/ru')
+require('dayjs/locale/ru');
 
-dayjs.locale('ru')
+dayjs.locale('ru');
 
 const queryClient = new QueryClient();
 
@@ -37,7 +37,7 @@ export default function Home() {
             <PersonCard
               name='Старкова Ксения Сергеевна'
               position='Frontend-разработчик | React'
-              status={Status.LOOKING_FOR_WORK}
+              status={Status.CONSIDERING_OFFERS}
               photoUrl='/KseniaStarkova/KseniaStarkovaXSmall.jpeg'
               pageUrl='/KseniaStarkova'
             />

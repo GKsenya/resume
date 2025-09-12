@@ -7,42 +7,41 @@ import { useState } from 'react';
 import classes from './certificates.module.css';
 
 type CertType = {
-  name: string,
-  year: number,
-  source: string,
-  description: string,
-}
+  name: string;
+  year: number;
+  source: string;
+};
 
 const certs: Record<string, CertType> = {
   '/GregorStarkov/cert-1.jpg': {
     name: 'Основы языка Swift',
     year: 2019,
     source: 'GeekBrains',
-    description: '',
   },
   '/GregorStarkov/cert-2.jpg': {
     name: 'Введение в iOS разработку на Swift',
     year: 2020,
     source: 'GeekBrains',
-    description: '',
   },
   '/GregorStarkov/cert-3.jpg': {
     name: 'Ускорение iOS-приложений',
     year: 2020,
     source: 'GeekBrains',
-    description: '',
   },
   '/GregorStarkov/cert-4.jpg': {
     name: 'Kotlin Multiplatform Masterclass - KMP, KMM - Android, iOS',
     year: 2025,
     source: 'Udemy',
-    description: '',
   },
   '/GregorStarkov/cert-5.jpg': {
     name: 'The Complete SQL Bootcamp: Go from Zero to Hero',
     year: 2025,
     source: 'Udemy',
-    description: '',
+  },
+  '/GregorStarkov/cert-6.jpg': {
+    name: 'Reactive Programming in iOS Using Combine Framework',
+    year: 2025,
+    source: 'Udemy',
   },
 };
 
@@ -69,7 +68,8 @@ export const Certificates = () => {
       <SimpleGrid
         mt='xl'
         visibleFrom='sm'
-        cols={{ base: 1, xs: 2, md: 3, xl: 5 }}
+        cols={{ base: 1, xs: 2, md: 3, xl: 4 }}
+        style={{ justifyContent: 'center' }}
       >
         {Object.keys(certs).map((item, index) => {
           const certData = certs[item];
@@ -91,17 +91,25 @@ export const Certificates = () => {
                   c='gray.0'
                   justify='space-between'
                 >
-                  <Title order={4} fw={800}>
+                  <Title
+                    order={4}
+                    fw={800}
+                  >
                     {certData.name}
                   </Title>
                   <Stack gap={0}>
-                    <Text c='gray.3' fw={600}>{certData.year}</Text>
+                    <Text
+                      c='gray.3'
+                      fw={600}
+                    >
+                      {certData.year}
+                    </Text>
                     <Text fw={600}>{certData.source}</Text>
                   </Stack>
                 </Stack>
               </BackgroundImage>
             </Paper>
-          )
+          );
         })}
       </SimpleGrid>
       <Box
