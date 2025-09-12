@@ -13,7 +13,6 @@ export const Education = () => {
       title='Образование'
       color='white'
       variant='colored'
-      // bg="deepBlue2.6"
       backgroundSrc='/GregorStarkov/background-3.png'
     >
       <Divider
@@ -31,8 +30,8 @@ export const Education = () => {
         style={({ colors }) =>
           isMobile
             ? {
-              borderLeft: `4px solid ${colors.gray[5]}`,
-            }
+                borderLeft: `4px solid ${colors.gray[5]}`,
+              }
             : {}
         }
       >
